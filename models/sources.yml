@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: dbt_fake
+    description: Schema with all the tables considered sources by the dbt_fake project
+    database: dbt-fake-1
+    schema: dbt_aleonel_sources
+
+    tables:
+      - name: companies_base
+        description: database of companies
+
+      - name: employees_base
+        description: database of employees and their profile information
+      
+      - name: enterprise_orders_base
+        description: list of orders made by the employees
+
+      - name: products_base
+        description: database of products
+
+  - name: dbt_fake_2
+    description: Schema with all the tables considered seeds by the dbt_fake project. Here considered sources.
+    database: dbt-fake-1
+    schema: dbt_aleonel_source_seeds
+
+    tables:
+      - name: fake_personal_info
+        description: additional information on employees
+
+
+
+
