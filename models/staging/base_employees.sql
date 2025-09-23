@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='ephemeral'
+    )
+}}
+
 with employees_base as  (
 
     select * from {{ source('dbt_fake','employees_base') }}

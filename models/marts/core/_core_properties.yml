@@ -1,0 +1,142 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "a date spine built using the dbt utils package."
+
+  - name: dim_product
+    description: "pulls product data and adds tenure based on date_added."
+    columns:
+      - name: prod_id
+        data_type: int64
+        description: "unique product identifier"
+
+      - name: category
+        data_type: string
+        description: "product category"
+
+      - name: prod_name
+        data_type: string
+        description: "product name"
+
+      - name: price
+        data_type: float64
+        description: "product price for final customer"
+
+      - name: prod_date_added
+        data_type: date
+        description: "date the product was added to the database"
+
+      - name: prod_years_joined
+        data_type: int64
+        description: "number of years product has been active based on date_added"
+
+  - name: dim_employee
+    description: "pulls employee data and adds tenure based on date_added."
+    columns:
+      - name: emp_id
+        data_type: int64
+        description: "unique employee identifier"
+
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: first_name
+        data_type: string
+        description: "employee first name"
+
+      - name: last_name
+        data_type: string
+        description: "employee last name"
+
+      - name: full_name
+        data_type: string
+        description: "employee full name"
+
+      - name: gender
+        data_type: string
+        description: "employee gender"
+
+      - name: email
+        data_type: string
+        description: "employee email address"
+
+      - name: age
+        data_type: int64
+        description: "employee age based on birthdate"
+
+      - name: username
+        data_type: string
+        description: "employee username in the system"
+
+      - name: emp_date_added
+        data_type: date
+        description: "date the employee was added to the database"
+
+      - name: phone_number
+        data_type: string
+        description: "employee phone number"
+
+      - name: address_street
+        data_type: string
+        description: "employee street name"
+
+      - name: address_city
+        data_type: string
+        description: "employee city"
+
+      - name: address_state
+        data_type: string
+        description: "employee state"
+
+      - name: address_zipcode
+        data_type: string
+        description: "employee zipcode"
+
+      - name: birthdate
+        data_type: date
+        description: "employee birthdate"
+
+      - name: blood_type
+        data_type: string
+        description: "employee blood type"
+
+      - name: favorite_color
+        data_type: string
+        description: "employee favorite color"
+
+      - name: credit_score
+        data_type: int64
+        description: "employee credit score"
+
+      - name: emp_years_joined
+        data_type: int64
+        description: "number of years since employee signed up based on date_added"
+
+  - name: dim_company
+    description: "pulls company data and adds tenure based on date_added"
+    columns:
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: comp_name
+        data_type: string
+        description: "company name"
+
+      - name: slogan
+        data_type: string
+        description: "company slogan"
+
+      - name: purpose
+        data_type: string
+        description: "company purpose"
+
+      - name: comp_dateadded
+        data_type: date
+        description: "date the company was added to the database"
+
+      - name: comp_years_joined
+        data_type: int64
+        description: "years since the company was added to the database, based on date_added"

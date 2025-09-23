@@ -9,15 +9,29 @@ sources:
     tables:
       - name: companies_base
         description: database of companies
+        meta:
+          owner: "customer_success"
 
       - name: employees_base
         description: database of employees and their profile information
+        meta:
+          owner: "user_support"
       
       - name: enterprise_orders_base
         description: list of orders made by the employees
+        meta:
+          owner: "sales_revenue"
+        config:
+          freshness:
+            warn_after: {count: 1 , period: day}
+            error_after: {count: 360, period: day}
+            filter: "product_id is not null"
+          loaded_at_field: "CAST(date AS TIMESTAMP)"
 
       - name: products_base
         description: database of products
+        meta:
+          owner: "operations"
 
   - name: dbt_fake_2
     description: Schema with all the tables considered seeds by the dbt_fake project. Here considered sources.
@@ -27,6 +41,8 @@ sources:
     tables:
       - name: fake_personal_info
         description: additional information on employees
+        meta:
+          owner: "user_support"
 
 
 

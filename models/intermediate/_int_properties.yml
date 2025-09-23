@@ -1,0 +1,46 @@
+
+version: 2
+
+models:
+  - name: int_order_detail
+    description: "enriches the orders table with product and company information and adds order_value"
+    columns:
+      - name: order_id
+        data_type: string
+        description: "unique identifier for orders"
+
+      - name: order_date
+        data_type: date
+        description: "date the order was placed"
+
+      - name: emp_id
+        data_type: int64
+        description: "unique identifier for employee"
+
+      - name: comp_id
+        data_type: int64
+        description: "unique identifier for company"
+
+      - name: prod_id
+        data_type: int64
+        description: "unique identifier for product"
+
+      - name: prod_name
+        data_type: string
+        description: "product name"
+
+      - name: category
+        data_type: string
+        description: "product category"
+
+      - name: price
+        data_type: float64
+        description: "product price"
+
+      - name: num_items
+        data_type: int64
+        description: "number of items ordered"
+
+      - name: order_value
+        data_type: float64
+        description: "total order value: number of items times price"

@@ -1,8 +1,14 @@
 name: 'dbt_exam_practice'
-version: '1.0.0'
 config-version: 2
 
 profile: 'default'
+query-comment:
+  comment: "{{ dbt_version }} | {{ invocation_id }}"
+
+on-run-start:
+  - "SELECT 'Starting dbt run at ' || CURRENT_TIMESTAMP() AS run_start_time;"
+on-run-end:
+  - "SELECT 'Finished dbt run at ' || CURRENT_TIMESTAMP() AS run_end_time;"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -18,3 +24,30 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_exam_practice:
+    +persist_docs:
+      relation: true
+      columns: true
+    marts:
+      +materialized: table
+      customer_success:
+        +group: customer_success
+        fct_company_trend:
+          +tags: depend_on_int_order_detail
+        fct_company:
+          +tags: depend_on_int_order_detail
+      operations:
+        fct_product_trend:
+          +tags: depend_on_int_order_detail
+      sales_revenue:
+        fct_orders:
+          +tags: depend_on_int_order_detail
+        fct_products:
+          +tags: depend_on_int_order_detail
+      user_support:
+        fct_employees:
+          +tags: depend_on_int_order_detail
+      core:
+        +group: core
+        dim_date:
+          +materialized: view
+          +schema: data_spine

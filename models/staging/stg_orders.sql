@@ -4,22 +4,15 @@ with orders as  (
 
 ),
 
-renamed as (
+reworked as (
 
     select 
+    {{ dbt_utils.generate_surrogate_key(['date', 'employee_id']) }} as order_id,
     date as order_date,
-    employee_id,
-    product_id,
+    employee_id as emp_id,
+    product_id as prod_id,
     num_items
     from orders
-),
-
-order_id_add as (
-
-    select 
-    GENERATE_UUID() as order_id,
-    *
-    from renamed
 )
 
-select * from order_id_add
+select * from reworked
