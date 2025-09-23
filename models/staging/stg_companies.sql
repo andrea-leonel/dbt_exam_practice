@@ -7,11 +7,11 @@ with companies_base as  (
 renamed as (
 
     select 
-    id as company_id,
-    name as company_name,
-    slogan as company_slogan,
-    purpose as company_purpose,
-    date_added as company_date_added
+    id as comp_id,
+    name as comp_name,
+    slogan,
+    purpose,
+    date_added as comp_dateadded
     from companies_base
 
 ),
@@ -19,7 +19,7 @@ renamed as (
 remove_nulls as (
 
     select * from renamed
-    where company_id is not null
+    where comp_id is not null
 
 )
 

@@ -1,0 +1,295 @@
+version: 2
+
+models:
+
+  - name: fct_company_trend
+    description: "comp_id and order_date grain with number of orders, items, employees ordering, order_value, and some columns brought in from the date_spine."
+    columns:
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: order_date
+        data_type: date
+        description: "date"
+
+      - name: num_orders
+        data_type: int64
+        description: "number of orders placed"
+
+      - name: num_items
+        data_type: int64
+        description: "number of items ordered"
+
+      - name: num_emps
+        data_type: int64
+        description: "number of employees who ordered"
+
+      - name: order_value
+        data_type: float64
+        description: "total value ordered"
+
+      - name: week_day
+        data_type: string
+        description: "from date spine, day of the week"
+
+      - name: week_num
+        data_type: int64
+        description: "from date spine, week number"
+
+      - name: month_num
+        data_type: int64
+        description: "from date spine, month number"
+
+      - name: quarter_num
+        data_type: int64
+        description: "from date spine, quarter number"
+
+      - name: year
+        data_type: int64
+        description: "from date spine, year"
+
+  - name: fct_company
+    description: "creates aggregations by company like latest_order_date, first_order_date, num_orders, max_order_value, min_order_value, avg_order_value, max_order_basket, min_order_basket, and prod_most_ordered; adds a status column based on frequency of ordering."
+    columns:
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: num_emp
+        data_type: int64
+        description: "number of employees"
+
+      - name: num_orders
+        data_type: int64
+        description: "number of orders placed"
+
+      - name: status
+        data_type: string
+        description: "status of company based on order frequency"
+
+      - name: latest_order_date
+        data_type: date
+        description: "date of latest order placed"
+
+      - name: first_order_date
+        data_type: date
+        description: "date of first order"
+
+      - name: max_order_value
+        data_type: float64
+        description: "highest order value"
+
+      - name: min_order_value
+        data_type: float64
+        description: "lowest order value"
+
+      - name: avg_order_value
+        data_type: float64
+        description: "average order value"
+
+      - name: max_order_basket
+        data_type: int64
+        description: "maximum number of items in a single order"
+
+      - name: min_order_basket
+        data_type: int64
+        description: "minimum number of items in a single order"
+
+      - name: prod_most_ordered
+        data_type: string
+        description: "product ordered most frequently"
+
+# operations
+
+  - name: fct_product_trend
+    description: "prod_id and order_date grain with number of orders, items, companies, order_value, and some date spine columns"
+    columns:
+      - name: prod_id
+        data_type: int64
+        description: "unique product identifier"
+
+      - name: prod_name
+        data_type: string
+        description: "product name"
+
+      - name: order_date
+        data_type: date
+        description: "date"
+
+      - name: num_orders
+        data_type: int64
+        description: "number of orders placed"
+
+      - name: num_items
+        data_type: int64
+        description: "number of items ordered"
+
+      - name: num_comps
+        data_type: int64
+        description: "number of companies ordering the product"
+
+      - name: order_value
+        data_type: float64
+        description: "total value generated"
+
+      - name: week_day
+        data_type: string
+        description: "from date spine, day of the week"
+
+      - name: week_num
+        data_type: int64
+        description: "from date spine, week number"
+
+      - name: month_num
+        data_type: int64
+        description: "from date spine, month number"
+
+      - name: quarter_num
+        data_type: int64
+        description: "from date spine, quarter number"
+
+      - name: year
+        data_type: int64
+        description: "from date spine, year"
+
+# sales & revenue
+
+  - name: fct_products
+    description: "creates aggregations by product like latest_order_date, first_order_date, num_orders, max_order_value, min_order_value, avg_order_value, max_order_basket, min_order_basket, and prod_most_ordered; adds a status column based on frequency of ordering."
+    columns:
+      - name: prod_id
+        data_type: int64
+        description: "unique product identifier"
+
+      - name: latest_order_date
+        data_type: date
+        description: "date of latest order placed"
+
+      - name: first_order_date
+        data_type: date
+        description: "date of first order"
+
+      - name: num_orders
+        data_type: int64
+        description: "number of orders for that product"
+
+      - name: max_order_value
+        data_type: float64
+        description: "highest order value"
+
+      - name: min_order_value
+        data_type: float64
+        description: "lowest order value"
+
+      - name: lifetime_value
+        data_type: float64
+        description: "total value generated"
+
+      - name: max_order_basket
+        data_type: int64
+        description: "maximum number of items in a single order"
+
+      - name: min_order_basket
+        data_type: int64
+        description: "minimum number of items in a single order"
+
+      - name: status
+        data_type: string
+        description: ""
+
+  - name: fct_orders
+    description: "this is just a select from the int_order_detail model to move it to the next layer"
+    columns:
+      - name: order_id
+        data_type: string
+        description: "unique order identifier"
+
+      - name: order_date
+        data_type: date
+        description: "date order was placed"
+
+      - name: emp_id
+        data_type: int64
+        description: "unique employee identifier"
+
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: prod_id
+        data_type: int64
+        description: "unique product identifier"
+
+      - name: prod_name
+        data_type: string
+        description: "product name"
+
+      - name: category
+        data_type: string
+        description: "product category"
+
+      - name: price
+        data_type: float64
+        description: "product price"
+
+      - name: num_items
+        data_type: int64
+        description: "number of items ordered"
+
+      - name: order_value
+        data_type: float64
+        description: "total order value"
+
+# user support
+
+  - name: fct_employees
+    description: "creates aggregations by employee like latest_order_date, first_order_date, num_orders, max_order_value, min_order_value, avg_order_value, max_order_basket, min_order_basket, and prod_most_ordered; adds a status column based on frequency of ordering."
+    columns:
+      - name: emp_id
+        data_type: int64
+        description: "unique employee identifier"
+
+      - name: comp_id
+        data_type: int64
+        description: "unique company identifier"
+
+      - name: status
+        data_type: string
+        description: "status based on frequency of ordering"
+
+      - name: latest_order_date
+        data_type: date
+        description: "date of latest order placed"
+
+      - name: first_order_date
+        data_type: date
+        description: "date of first order"
+
+      - name: num_orders
+        data_type: int64
+        description: "number of orders for that product"
+
+      - name: max_order_value
+        data_type: float64
+        description: "highest order value"
+
+      - name: min_order_value
+        data_type: float64
+        description: "lowest order value"
+
+      - name: avg_order_value
+        data_type: float64
+        description: "average order value"
+
+      - name: max_order_basket
+        data_type: int64
+        description: "maximum number of items in a single order"
+
+      - name: min_order_basket
+        data_type: int64
+        description: "minimum number of items in a single order"
+
+      - name: prod_most_ordered
+        data_type: string
+        description: "product ordered most frequently"

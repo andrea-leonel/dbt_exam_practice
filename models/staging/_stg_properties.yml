@@ -1,0 +1,152 @@
+version: 2
+
+models:
+  - name: base_employees
+    description: "joins the two sources with employee data."
+  - name: stg_products
+    description: "pulls from product_base, renames columns and removes null prod_ids from the source data"
+    columns:
+      - name: prod_id
+        data_type: int64
+        description: "unique identifier for products"
+
+      - name: category
+        data_type: string
+        description: "product category"
+
+      - name: prod_name
+        data_type: string
+        description: "product name"
+
+      - name: price
+        data_type: float64
+        description: "price for final customer"
+
+      - name: prod_date_added
+        data_type: date
+        description: "date the product was added to the database"
+
+  - name: stg_employees
+    description: "pulls from base_employee which is a join of employee_base and fake_personal_info, renames columns, creates full_name, codes gender to F or M, calculates the age based on birthdate, extracts fields from address into separate columns"
+    columns:
+      - name: emp_id
+        data_type: int64
+        description: "unique identifier for employee"
+
+      - name: comp_id
+        data_type: int64
+        description: "unique identifier for company"
+
+      - name: first_name
+        data_type: string
+        description: "first name of the employee"
+
+      - name: last_name
+        data_type: string
+        description: "last name of the employee"
+
+      - name: full_name
+        data_type: string
+        description: "employee full name"
+
+      - name: gender
+        data_type: string
+        description: "employee gender"
+
+      - name: email
+        data_type: string
+        description: "employee email"
+
+      - name: age
+        data_type: int64
+        description: "employee age based on birthdate"
+
+      - name: username
+        data_type: string
+        description: "system username for the employee"
+
+      - name: emp_date_added
+        data_type: date
+        description: "date the employee was registered into the database"
+
+      - name: phone_number
+        data_type: string
+        description: "employee phone number"
+
+      - name: address_street
+        data_type: string
+        description: "employee street name"
+
+      - name: address_city
+        data_type: string
+        description: "employee city"
+
+      - name: address_state
+        data_type: string
+        description: "employee state"
+
+      - name: address_zipcode
+        data_type: string
+        description: "employee zipcode"
+
+      - name: birthdate
+        data_type: date
+        description: "employee birthdate"
+
+      - name: blood_type
+        data_type: string
+        description: "employee blood type"
+
+      - name: favorite_color
+        data_type: string
+        description: "employee favorite color"
+
+      - name: credit_score
+        data_type: int64
+        description: "employee credit score"
+
+  - name: stg_orders
+    description: "pulls from orders_base and adds a surrogate key using the dbt utils package based on date and employee_id, assuming each employee could only place one order per day; renames columns."
+    columns:
+      - name: order_id
+        data_type: string
+        description: "unique identifier for orders"
+
+      - name: order_date
+        data_type: date
+        description: "date the order was placed"
+
+      - name: emp_id
+        data_type: int64
+        description: "unique identifier for employee"
+
+      - name: prod_id
+        data_type: int64
+        description: "unique identifier for product"
+
+      - name: num_items
+        data_type: int64
+        description: "number of items ordered"
+
+  - name: stg_companies
+    description: "Pulls from companies_base and renames columns, removes null company_ids from the source data"
+    columns:
+      - name: comp_id
+        data_type: int64
+        description: "unique identifier for company"
+
+      - name: comp_name
+        data_type: string
+        description: "company name"
+
+      - name: slogan
+        data_type: string
+        description: "company slogan"
+
+      - name: purpose
+        data_type: string
+        description: "company purpose"
+
+      - name: comp_dateadded
+        data_type: date
+        description: "date the company was added to the database"

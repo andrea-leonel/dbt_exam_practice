@@ -13,11 +13,11 @@ removed_null as (
 renamed as (
     
     select
-        id as product_id,
-        category as product_category,
-        name as product_name,
-        price as product_price,
-        date_added as product_date_added
+        id as prod_id,
+        category,
+        name as prod_name,
+        price,
+        date_added as prod_date_added
         from removed_null
 
 )
