@@ -4,3 +4,12 @@ packages:
 
   - package: dbt-labs/codegen
     version: 0.13.1
+
+  - git: "https://github.com/andrea-leonel/dbt_exam_practice"
+    revision: main
+    include:
+      - "*"
+    exclude:
+      - ".gitignore"
+      - "README.md"
+      - "datasets/*"
