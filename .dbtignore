@@ -1,0 +1,4 @@
+# .dbtignore
+.gitignore
+README.md
+datasets/**
