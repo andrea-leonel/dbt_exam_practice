@@ -1,0 +1,8 @@
+# .dbtignore
+
+# ignore datasets folder
+datasets
+
+# ignore gitignore and readme
+.gitignore
+README.md
