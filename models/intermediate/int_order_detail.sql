@@ -28,7 +28,7 @@ order_value as (
         category,
         price,
         num_items,
-        round(safe_multiply(num_items,price),2) as order_value
+        round(safe_multiply(num_items,price),2) as product_value
     from add_product
 
 )

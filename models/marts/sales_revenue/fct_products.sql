@@ -11,9 +11,9 @@ aggregations as (
     max(b.order_date) as latest_order_date,
     min(b.order_date) as first_order_date,
     count(distinct b.order_id) as num_orders,
-    max(b.order_value) as max_order_value,
-    min(b.order_value) as min_order_value,
-    round(sum(b.order_value),2) as lifetime_value,
+    max(b.product_value) as max_order_value,
+    min(b.product_value) as min_order_value,
+    round(sum(b.product_value),2) as lifetime_value,
     max(b.num_items) as max_order_basket,
     min(b.num_items) as min_order_basket
     from products a
