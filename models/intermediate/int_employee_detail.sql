@@ -7,6 +7,16 @@ with employees as (
 
 ),
 
+company_detail as (
+
+    select 
+    e.*,
+    c.comp_dateadded
+    from employees e
+    left join {{ ref('stg_companies') }} c on c.comp_id = e.comp_id
+
+),
+
 orders as (
 
     select * from {{ ref('stg_orders') }}
@@ -26,7 +36,7 @@ product_detail as (
     b.prod_id,
     b.prod_name,
     count(distinct b.order_id) as times_ordered
-    from employees a
+    from company_detail a
     left join orders_with_product b on a.emp_id = b.emp_id
     group by a.emp_id, b.prod_id, b.prod_name
 
@@ -50,10 +60,9 @@ ranked_product_detail as (
 product_detail_final as (
 
     select 
-    a.emp_id,
-    a.comp_id,
+    a.*,
     b.prod_name as prod_most_ordered
-    from employees A
+    from company_detail A
     left join ranked_product_detail b on a.emp_id = b.emp_id
     where b.times_ranked = 1
 )

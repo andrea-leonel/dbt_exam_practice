@@ -52,7 +52,7 @@ ranked_product_detail as (
 product_detail_final as (
 
     select 
-    a.comp_id,
+    a.*,
     b.prod_name as prod_most_ordered
     from companies a
     left join ranked_product_detail b on a.comp_id = b.comp_id

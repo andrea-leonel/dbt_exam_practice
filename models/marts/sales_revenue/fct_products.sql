@@ -1,24 +1,23 @@
-with products as (
+with orders_detail as (
 
-    select * from {{ ref('stg_products') }}
+    select * from {{ ref('int_order_detail') }}
 
 ),
 
 aggregations as (
 
     select 
-    a.prod_id,
-    max(b.order_date) as latest_order_date,
-    min(b.order_date) as first_order_date,
-    count(distinct b.order_id) as num_orders,
-    max(b.product_value) as max_order_value,
-    min(b.product_value) as min_order_value,
-    round(sum(b.product_value),2) as lifetime_value,
-    max(b.num_items) as max_order_basket,
-    min(b.num_items) as min_order_basket
-    from products a
-    left join {{ ref('int_order_detail') }} b on a.prod_id = b.prod_id
-    group by a.prod_id
+    distinct prod_id,
+    max(order_date) as latest_order_date,
+    min(order_date) as first_order_date,
+    count(distinct order_id) as num_orders,
+    max(product_value) as max_order_value,
+    min(product_value) as min_order_value,
+    round(sum(product_value),2) as lifetime_value,
+    max(num_items) as max_order_basket,
+    min(num_items) as min_order_basket
+    from orders_detail
+    group by prod_id
 
 ),
 

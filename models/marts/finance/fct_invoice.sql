@@ -1,41 +1,34 @@
-with employees as (
+with orders_total as (
     
-    select * from {{ ref('stg_employees') }}
+    select * from {{ ref('int_order_totals') }}
 
 ),
 
-products as (
-    
-    select * from {{ ref('stg_products') }}
+employees as (
 
+    select * from {{ ref('int_employee_detail') }}
 ),
 
 companies as (
-    
-    select * from {{ ref('stg_companies') }}
 
-),
-
-invoice_totals as(
-
-    select * from {{ ref('int_invoice_totals') }}
+    select * from {{ ref('int_company_detail') }}
 ),
 
 invoice_detail as (
 
     select
-    concat('INV-',{{ dbt_utils.generate_surrogate_key(['order_date','emp_id']) }}) as invoice_id,
+    concat(order_date, emp_id) as invoice_id,
     emp_id,
     order_id,
     comp_id,
     total_items as lines_count,
     total_gross_value as invoice_gross,
-    round(total_gross_value + emp_disc_value,2) as invoice_net_before_vat,
+    total_gross_value + emp_disc_value as invoice_net_before_vat,
     --env.disc_applied,
     --env.emp_disc_value,
     total_vat as invoice_vat_total,
     total_net_value as invoice_total
-    from invoice_totals
+    from orders_total
     order by order_id
 
 ),
@@ -74,10 +67,10 @@ invoice_final as (
     null as prod_name,
     null as category,
     inv.lines_count,
-    inv.invoice_gross,
-    inv.invoice_net_before_vat,
-    inv.invoice_vat_total,
-    inv.invoice_total,
+    round(cast(inv.invoice_gross as numeric),2,'ROUND_HALF_AWAY_FROM_ZERO') as invoice_gross,
+    round(cast(inv.invoice_net_before_vat as numeric),2,'ROUND_HALF_AWAY_FROM_ZERO') as invoice_net_before_vat,
+    round(cast(inv.invoice_vat_total as numeric),2,'ROUND_HALF_AWAY_FROM_ZERO') as invoice_vat_total,
+    round(cast(inv.invoice_total as numeric),2,'ROUND_HALF_AWAY_FROM_ZERO') as invoice_total,
     inv.invoice_value_bucket,
     current_timestamp() as generated_at
     from invoice_class inv
@@ -90,3 +83,4 @@ invoice_final as (
 -- Simple SELECT statement.
 
 select * from invoice_final
+--where invoice_id = '9801a4b4307121cc6da51c1fc80339db'
