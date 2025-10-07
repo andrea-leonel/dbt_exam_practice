@@ -13,7 +13,7 @@ prod_order as (
     count(distinct order_id) as num_orders,
     sum(num_items) as num_items,
     count(distinct comp_id) as num_comps,
-    round(sum(order_value),2) as order_value
+    round(sum(product_value),2) as product_value
     from orders
     group by prod_id, prod_name, order_date
 ),

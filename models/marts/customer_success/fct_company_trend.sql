@@ -1,6 +1,6 @@
 with orders as (
 
-    select * from {{ ref('int_order_detail') }}
+    select * from {{ ref('int_order_totals') }}
 
 ),
 
@@ -10,9 +10,9 @@ comp_order as (
     comp_id,
     order_date,
     count(distinct order_id) as num_orders,
-    sum(num_items) as num_items,
-    count(distinct emp_id) as num_emps,
-    round(sum(order_value),2) as order_value
+    sum(total_num_items) as num_items,
+    count(distinct emp_id) as num_emp,
+    round(sum(total_gross_value),2) as order_value_gross
     from orders
     group by comp_id, order_date
 ),
