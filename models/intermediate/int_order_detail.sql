@@ -6,7 +6,7 @@ with orders as (
 
 add_company as (
 
-    select a.*, b.comp_id, from orders a
+    select a.*, b.comp_id, b.state_code as emp_state from orders a
     left join {{ ref('stg_employees') }} b on a.emp_id = b.emp_id 
 ),
 
