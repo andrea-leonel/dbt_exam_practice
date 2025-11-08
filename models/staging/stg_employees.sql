@@ -20,8 +20,8 @@ area_codes as (
 reworked as (
 
     select 
-    id as emp_id,
-    company_id as comp_id,
+    trim(safe_cast(id as string)) as emp_id,
+    trim(safe_cast(company_id as string)) as comp_id,
     first_name, 
     last_name,
     concat(first_name,' ',last_name) as full_name,
