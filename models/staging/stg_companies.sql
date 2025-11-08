@@ -7,7 +7,7 @@ with companies_base as  (
 renamed as (
 
     select 
-    id as comp_id,
+    trim(safe_cast(id as string)) as comp_id,
     name as comp_name,
     slogan,
     purpose,

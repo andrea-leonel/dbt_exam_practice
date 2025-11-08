@@ -22,7 +22,7 @@ company_detail as (
 
 add_product as (
 
-    select a.*, b.category, b.price, b.prod_name from company_detail a
+    select a.*, b.category, b.price, b.prod_name, b.manufacturing_status from company_detail a
     left join {{ ref('stg_products') }} b on a.prod_id = b.prod_id
 ),
 

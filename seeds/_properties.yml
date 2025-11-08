@@ -1,0 +1,33 @@
+seeds:
+  - name: international_area_codes
+    description: standard area codes and countries
+    docs:
+      show: true
+    
+    columns:
+      - name: country_code
+        description: international area code for phone numbers
+      - name: country_name
+        description: name of the country not abbreviated
+
+  - name: prod_manufacturing_status
+    description: defines if the product id is manufactured in-house or externally - provided by Operations
+    docs:
+      show: true
+    
+    columns:
+      - name: product_id
+        description: product id
+      - name: manufacturing_status
+        description: In-house or External - informed by Operations
+
+  - name: us_states
+    description: provides 2-letter abbreviation for us states
+    docs:
+      show: true
+    
+    columns:
+      - name: state_code
+        description: 2-letter state abbreviation
+      - name: state_name
+        description: Full name of the state

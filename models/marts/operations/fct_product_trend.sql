@@ -10,12 +10,13 @@ prod_order as (
     prod_id,
     prod_name,
     order_date,
+    manufacturing_status,
     count(distinct order_id) as num_orders,
     sum(num_items) as num_items,
     count(distinct comp_id) as num_comps,
     round(sum(product_value),2) as product_value
     from orders
-    group by prod_id, prod_name, order_date
+    group by prod_id, prod_name, order_date, manufacturing_status
 ),
 
 date_spine as (

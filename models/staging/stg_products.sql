@@ -5,7 +5,10 @@ with products_base as (
 
 manufacturing_status as (
 
-    select * from {{ ref('prod_manufacuring_status') }}
+    select 
+    trim(safe_cast(product_id as string)) as prod_id,
+    manufacturing_status
+    from {{ ref('prod_manufacturing_status') }}
 ),
 
 removed_null as (
@@ -18,7 +21,7 @@ removed_null as (
 renamed as (
     
     select
-        id as prod_id,
+        trim(safe_cast(id as string)) as prod_id,
         category,
         name as prod_name,
         price,
@@ -32,9 +35,10 @@ join_manuf_status as (
     select a.*,
     b.manufacturing_status
     from renamed a
-    left join manufacturing_status b on safe_cast(a.prod_id as string) = safe_cast(b.prod_id as string)
+    left join manufacturing_status b on a.prod_id = b.prod_id
 
 )
+
 
 select * from join_manuf_status
 
