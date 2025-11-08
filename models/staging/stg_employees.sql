@@ -4,6 +4,19 @@ with employees_base as  (
 
 ),
 
+state_codes as (
+
+    select * from {{ ref('us_states') }}
+),
+
+area_codes as (
+
+    select 
+    trim(safe_cast(country_code as string)) as country_code,
+    country_name
+    from {{ ref('international_area_codes') }}
+),
+
 reworked as (
 
     select 
@@ -32,6 +45,23 @@ reworked as (
     credit_score
     from employees_base
 
+),
+
+add_state_code as (
+
+    select a.*,
+    b.state_code,
+    from reworked a
+    left join state_codes b on a.address_state = b.state_name
+),
+
+add_area_code as (
+
+    select a.*,
+    b.country_name as phone_country
+    from add_state_code a 
+    left join area_codes b 
+    on trim(substr(a.phone_number,strpos(a.phone_number,'+')+1,(strpos(a.phone_number,' - ')-strpos(a.phone_number,'+')))) = b.country_code
 )
 
-select * from reworked
+select * from add_area_code
