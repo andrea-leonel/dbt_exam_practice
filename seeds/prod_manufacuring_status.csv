@@ -1,112 +1,501 @@
-prod_id,prod_name,manufacturing_status
-1,Licensed Fresh Shoes,External
-43,New Fresh Keyboard,External
-172,Rubber Bike,In-house
-175,Mouse,In-house
-520,Cotton Towels,In-house
-582,For repair Keyboard,In-house
-651,Plastic Chair,In-house
-663,Gently Used Concrete Car,In-house
-680,Concrete Chicken,External
-710,Tasty Shoes,In-house
-873,Handmade Chicken,In-house
-1227,Handcrafted Ball,In-house
-1253,Ball,In-house
-1410,Incredible Pizza,In-house
-1423,Concrete Chicken,In-house
-1444,Concrete Car,In-house
-1502,Bike,In-house
-1584,Fantastic Wooden Shoes,In-house
-1593,Ergonomic Wooden Hat,External
-1638,Gently Used Hat,In-house
-1698,Practical Plastic Tuna,In-house
-1749,Licensed Plastic Bacon,In-house
-1751,Handcrafted Bacon,In-house
-1988,Small Car,In-house
-2044,Pants,External
-2065,Incredible Ball,In-house
-2074,Rubber Mouse,In-house
-2158,Gently Used Concrete Fish,External
-2405,Handcrafted Mouse,In-house
-2647,Licensed Frozen Keyboard,In-house
-2649,Incredible Rubber Mouse,In-house
-2841,Hat,External
-2932,Bacon,In-house
-3058,Used Plastic Chair,In-house
-3111,For repair Mouse,In-house
-3126,Awesome Wooden Pants,In-house
-3183,Keyboard,In-house
-3210,Steel Chicken,In-house
-3220,Tasty Shoes,In-house
-3300,Hat,In-house
-3366,Frozen Ball,In-house
-3387,Wooden Computer,In-house
-3407,Handmade Chair,In-house
-3468,Fantastic Tuna,In-house
-3552,Tasty Metal Towels,External
-3571,Steel Car,External
-3605,Concrete Tuna,In-house
-3832,Tasty Cotton Towels,In-house
-3881,Generic Steel Chips,In-house
-3974,Intelligent Rubber Pants,In-house
-4027,For repair Concrete Table,In-house
-4377,For repair Bacon,In-house
-4409,Handmade Soft Chicken,External
-4432,Plastic Bike,In-house
-4451,Unbranded Mouse,In-house
-4489,Incredible Salad,External
-4736,Fresh Shoes,In-house
-4753,Awesome Metal Tuna,In-house
-4928,Licensed Computer,External
-4950,Granite Fish,In-house
-5029,Practical Fish,External
-5173,Practical Sausages,In-house
-5216,Practical Rubber Keyboard,In-house
-5649,Ergonomic Ball,In-house
-5854,New Sausages,In-house
-5945,Ball,In-house
-6008,Intelligent Steel Computer,In-house
-6200,Small Plastic Pants,External
-6202,Plastic Chips,In-house
-6259,Tasty Fish,In-house
-6369,Rubber Car,In-house
-6387,Tuna,In-house
-6436,Handmade Mouse,In-house
-6720,Plastic Cheese,In-house
-6727,Small Rubber Keyboard,In-house
-6759,Refined Concrete Cheese,In-house
-6762,Cotton Shoes,In-house
-6851,Metal Tuna,In-house
-7139,Rustic Rubber Fish,In-house
-7205,Cotton Chair,In-house
-7287,Sleek Rubber Fish,In-house
-7320,Table,In-house
-7343,Metal Tuna,In-house
-7398,Practical Car,In-house
-7444,Practical Soap,In-house
-7481,Soap,External
-7560,Plastic Chicken,In-house
-7585,Metal Towels,In-house
-7840,Handcrafted Steel Towels,External
-7863,Steel Bike,In-house
-7878,Handcrafted Mouse,In-house
-8033,Sleek Bacon,In-house
-8152,Rustic Chair,External
-8176,Towels,In-house
-8558,Gorgeous Fish,In-house
-8658,Concrete Car,In-house
-8804,Steel Sausages,In-house
-8872,Incredible Bike,In-house
-8921,Tasty Gloves,In-house
-8927,Soft Chips,In-house
-8953,Bacon,In-house
-9037,Intelligent Towels,In-house
-9260,Metal Car,In-house
-9319,Used Car,In-house
-9456,Fresh Chair,External
-9491,Tuna,In-house
-9531,Intelligent Tuna,In-house
-9720,Incredible Steel Soap,In-house
-9932,Gently Used Shoes,In-house
-9950,Car,In-house
-9990,Incredible Fish,In-house
+prod_id,manufacturing_status
+3605,In-house
+4555,In-house
+5810,In-house
+2400,In-house
+6894,In-house
+3364,In-house
+6832,In-house
+5314,In-house
+892,In-house
+3004,External
+2157,In-house
+1047,External
+5947,In-house
+4451,In-house
+2238,In-house
+3024,In-house
+742,In-house
+2098,In-house
+3192,In-house
+1237,In-house
+2234,In-house
+2304,In-house
+5364,External
+7799,External
+4949,In-house
+4946,In-house
+8612,External
+3988,In-house
+8385,In-house
+6930,External
+4770,In-house
+1749,In-house
+5797,In-house
+6506,In-house
+8874,External
+5962,In-house
+1993,In-house
+285,In-house
+9333,External
+2080,In-house
+8120,In-house
+5867,In-house
+599,In-house
+1362,In-house
+4079,In-house
+7651,In-house
+2086,In-house
+8454,In-house
+2189,In-house
+1689,External
+5312,In-house
+9720,External
+8689,In-house
+2845,In-house
+2065,In-house
+194,In-house
+5118,In-house
+8762,In-house
+2467,External
+4332,In-house
+2171,External
+4106,In-house
+2054,In-house
+7552,External
+2940,In-house
+6399,In-house
+3727,In-house
+2784,In-house
+1593,External
+6759,In-house
+3031,In-house
+5582,In-house
+3381,External
+6664,External
+9270,In-house
+5488,External
+4986,External
+4116,External
+5157,In-house
+2839,External
+1007,In-house
+4190,In-house
+7173,In-house
+3499,In-house
+36,External
+5548,External
+6924,In-house
+4845,In-house
+6016,In-house
+7264,In-house
+3614,In-house
+7823,External
+309,In-house
+6845,In-house
+1717,External
+377,In-house
+1520,In-house
+6851,External
+2031,In-house
+8364,External
+6504,External
+1926,In-house
+7545,External
+3407,External
+1324,In-house
+2382,In-house
+2793,In-house
+9713,In-house
+7584,In-house
+8937,In-house
+5812,In-house
+278,In-house
+3368,External
+733,In-house
+1002,In-house
+5297,External
+9113,External
+8564,In-house
+1346,External
+3239,External
+2641,In-house
+5519,External
+4920,External
+7392,External
+6691,In-house
+3222,In-house
+7218,In-house
+6692,In-house
+37,In-house
+8535,In-house
+9597,In-house
+9018,In-house
+9531,External
+6949,In-house
+349,In-house
+5653,External
+544,In-house
+2875,In-house
+4395,External
+9530,In-house
+9548,In-house
+1582,In-house
+2491,External
+5715,In-house
+5138,In-house
+9504,External
+5394,In-house
+1494,External
+9791,External
+4753,In-house
+2722,In-house
+6381,In-house
+4168,In-house
+2405,In-house
+7606,In-house
+3370,In-house
+9272,In-house
+4906,External
+649,External
+1080,In-house
+7581,In-house
+6082,In-house
+2671,In-house
+8087,In-house
+927,In-house
+5708,In-house
+9773,External
+534,In-house
+8152,External
+1974,In-house
+1903,In-house
+3111,In-house
+8857,External
+9363,External
+2158,In-house
+9055,External
+7219,External
+4717,External
+240,In-house
+8613,In-house
+9822,In-house
+9318,In-house
+9927,In-house
+2483,In-house
+2493,In-house
+2997,In-house
+1692,In-house
+352,In-house
+5649,In-house
+918,In-house
+4136,In-house
+968,In-house
+4388,In-house
+3261,In-house
+2603,In-house
+5622,In-house
+9207,In-house
+4148,In-house
+6124,In-house
+9503,External
+6236,In-house
+2952,In-house
+815,External
+9807,In-house
+4881,In-house
+967,In-house
+160,External
+9735,In-house
+4237,In-house
+7215,External
+7331,External
+5376,In-house
+6309,In-house
+3862,In-house
+7585,External
+4889,In-house
+4250,In-house
+9987,In-house
+9026,In-house
+6144,In-house
+3825,In-house
+9825,External
+8416,In-house
+1712,In-house
+7009,In-house
+2783,In-house
+5479,In-house
+4669,In-house
+8872,External
+373,External
+2261,In-house
+7287,In-house
+8834,In-house
+5305,In-house
+3231,In-house
+4271,External
+3389,In-house
+9372,In-house
+6408,In-house
+3320,External
+1963,In-house
+2882,In-house
+9036,In-house
+244,In-house
+2924,External
+7678,In-house
+9160,External
+3362,In-house
+2312,External
+8326,External
+4047,In-house
+1179,In-house
+5427,In-house
+8631,In-house
+5632,In-house
+1,In-house
+7491,In-house
+6458,In-house
+4870,In-house
+43,External
+5900,In-house
+5924,External
+8845,In-house
+2431,External
+9841,In-house
+7343,In-house
+4361,In-house
+8262,In-house
+8530,In-house
+3753,In-house
+9057,In-house
+8905,External
+5954,In-house
+2647,In-house
+5425,In-house
+6960,In-house
+1342,In-house
+7915,In-house
+7356,In-house
+4969,In-house
+7182,In-house
+5121,External
+1798,In-house
+5514,In-house
+873,In-house
+5264,In-house
+6427,In-house
+84,In-house
+8183,External
+4067,In-house
+1638,In-house
+8865,In-house
+7089,In-house
+771,In-house
+9741,In-house
+6619,External
+4634,In-house
+7377,In-house
+719,In-house
+4935,External
+974,In-house
+7777,In-house
+2263,In-house
+8577,In-house
+7497,External
+4880,In-house
+5069,In-house
+8829,In-house
+7443,External
+4671,In-house
+2396,In-house
+2399,In-house
+2638,In-house
+8772,In-house
+1263,In-house
+2730,In-house
+5993,In-house
+7616,In-house
+6912,In-house
+3002,In-house
+5356,In-house
+3497,External
+8103,In-house
+2191,In-house
+6746,In-house
+5496,In-house
+9932,In-house
+6239,External
+1167,In-house
+6184,In-house
+3001,In-house
+1584,In-house
+8843,In-house
+9356,In-house
+4409,External
+9275,External
+3366,In-house
+8521,In-house
+2266,In-house
+1780,In-house
+5217,In-house
+6436,External
+4187,In-house
+360,In-house
+8337,External
+3058,In-house
+6720,In-house
+390,In-house
+167,External
+839,External
+7159,In-house
+5327,In-house
+8470,In-house
+8927,In-house
+9299,In-house
+9824,In-house
+2586,In-house
+1516,In-house
+9506,In-house
+4571,In-house
+8632,In-house
+2739,In-house
+8345,In-house
+4020,In-house
+7101,External
+3055,In-house
+9252,In-house
+5207,External
+573,External
+8722,External
+1679,External
+4490,In-house
+4142,External
+330,External
+7312,In-house
+9513,In-house
+7885,In-house
+6202,In-house
+6833,In-house
+4377,In-house
+4595,In-house
+7578,In-house
+3752,In-house
+1767,External
+6047,In-house
+1682,In-house
+1056,In-house
+8588,In-house
+2129,In-house
+1743,In-house
+4389,In-house
+8690,In-house
+5840,External
+3131,In-house
+5144,In-house
+1178,External
+1473,External
+1408,In-house
+6567,In-house
+4094,In-house
+1716,External
+1837,In-house
+7102,In-house
+9295,In-house
+1938,External
+2074,In-house
+5278,External
+5673,In-house
+954,External
+4620,External
+366,In-house
+136,In-house
+4987,In-house
+2353,In-house
+7254,External
+5230,External
+6125,External
+8029,In-house
+3832,In-house
+294,In-house
+1198,In-house
+3371,In-house
+8509,In-house
+5844,In-house
+172,In-house
+7448,In-house
+2176,In-house
+1444,In-house
+9982,External
+1004,In-house
+6062,In-house
+9967,In-house
+9560,In-house
+192,In-house
+6742,In-house
+6355,External
+7143,In-house
+6769,In-house
+3702,In-house
+180,In-house
+5029,In-house
+8830,In-house
+8282,External
+6351,In-house
+3294,In-house
+2806,In-house
+1289,In-house
+4907,In-house
+8751,In-house
+5064,In-house
+3006,In-house
+524,External
+5127,In-house
+4099,In-house
+9902,In-house
+1078,In-house
+6895,In-house
+2127,In-house
+5773,In-house
+6952,In-house
+3007,External
+3912,External
+7074,In-house
+5996,External
+9988,In-house
+7499,External
+2163,In-house
+4243,In-house
+3870,In-house
+2373,In-house
+5758,External
+6450,In-house
+3443,External
+2494,In-house
+6369,In-house
+2106,In-house
+3179,In-house
+1650,In-house
+6889,In-house
+6913,In-house
+6549,In-house
+7744,In-house
+1900,In-house
+6352,In-house
+1786,External
+2278,In-house
+5555,In-house
+6104,In-house
+5497,In-house
+511,In-house
+7902,In-house
+4977,In-house
+1788,In-house
+2781,In-house
+3387,In-house
+1515,In-house
+6630,In-house
+8417,In-house
+2741,In-house
+8563,In-house
