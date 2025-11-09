@@ -1,11 +1,15 @@
 packages:
   - name: dbt_utils
     package: dbt-labs/dbt_utils
-    version: 1.3.1
+    version: 1.3.2
   - name: codegen
     package: dbt-labs/codegen
     version: 0.13.1
   - name: audit_helper
     package: dbt-labs/audit_helper
     version: 0.12.1
-sha1_hash: 7483fc169bfb56feb919144d8bf61999db83363b
+  - git: https://github.com/andrea-leonel/dbt_exam_practice.git
+    name: core_macros
+    revision: efdbaab7311502a8f8207dfb788e2b3dabe2d87f
+    subdirectory: core_macros
+sha1_hash: aebdd02bcc21205c4b2bb19cd4594de95d36a5c7
