@@ -30,12 +30,7 @@ discount_prod as (
 
     select
     *,
-    case
-        when lower(category) like '%food%' then 0.05
-        when lower(category) like '%electronics%' then 0.20
-        when lower(category) like '%clothing%' then 0.12
-        else 0.18
-    end as vat_perc
+    {{ vat_category('category') }} as vat_perc
     from add_product
 
 ),
