@@ -27,6 +27,7 @@ models:
     +persist_docs:
       relation: true
       columns: true
+
     marts:
       +materialized: table
       customer_success:

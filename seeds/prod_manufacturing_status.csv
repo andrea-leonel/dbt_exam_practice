@@ -560,5 +560,9 @@ product_id,manufacturing_status
 6630,In-house
 8417,In-house
 2741,External
+<<<<<<< HEAD
+8563,In-house
+=======
 8563,In-house
 8563,In-house
+>>>>>>> e0be78af7d2b1b538f4670db5b4e73f1eac1bea6

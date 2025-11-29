@@ -44,6 +44,17 @@ sources:
         meta:
           owner: "user_support"
 
+  - name: dbt_fake_live
+    description: Live orders table with daily updates.
+    database: leogodin217-dbt-tutorial
+    schema: fake_product_company_sources
+
+    tables:
+      - name: enterprise_orders_base
+        description: Live orders table with daily updates.
+        meta:
+          owner: "data"
+
 
 
 
