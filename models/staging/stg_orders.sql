@@ -1,6 +1,6 @@
 with orders as  (
 
-    select * from {{ source('dbt_fake','enterprise_orders_base') }}
+    select * from {{ source('dbt_fake_live', 'enterprise_orders_base') }}
 
 ),
 
