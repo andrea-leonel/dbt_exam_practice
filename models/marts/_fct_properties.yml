@@ -200,26 +200,48 @@ models:
 
   - name: fct_orders
     description: "this is just a select from the int_order_detail model to move it to the next layer"
+    config:
+      contract: 
+        enforced: true
     columns:
       - name: order_id
         data_type: string
         description: "unique order identifier"
-
+        constraints:
+          - type: not_null
+          
       - name: order_date
         data_type: date
         description: "date order was placed"
+        constraints:
+          - type: not_null
+          - type: unique
+          - type: primary_key
 
       - name: emp_id
-        data_type: int64
+        data_type: string
         description: "unique employee identifier"
+        constraints:
+          - type: not_null
+          - type: foreign_key
 
       - name: comp_id
-        data_type: int64
+        data_type: string
+        description: "unique company identifier"
+        constraints:
+          - type: not_null
+          - type: foreign_key
+
+      - name: comp_dateadded
+        data_type: date
         description: "unique company identifier"
 
       - name: prod_id
-        data_type: int64
+        data_type: string
         description: "unique product identifier"
+        constraints:
+          - type: not_null
+          - type: foreign_key
 
       - name: prod_name
         data_type: string
@@ -236,10 +258,30 @@ models:
       - name: num_items
         data_type: int64
         description: "number of items ordered"
+      
+      - name: emp_state
+        data_type: string
+        description: "state of the employer"
+
+      - name: manufacturing_status
+        data_type: string
+        description: "local or externally manufactured"
 
       - name: order_value
         data_type: float64
         description: "total order value"
+
+      - name: vat_perc
+        data_type: float64
+        description: "vat percentage applied"
+
+      - name: product_value
+        data_type: float64
+        description: "product cost minus vat"
+
+      - name: vat_value
+        data_type: float64
+        description: "vat amount"
 
 # user support
 
