@@ -31,11 +31,14 @@ models:
     marts:
       +materialized: table
       customer_success:
-        +group: customer_success
         fct_company_trend:
           +tags: depend_on_int_order_detail
+          +group: customer_success
+          +access: private
         fct_company:
           +tags: depend_on_int_order_detail
+          +group: customer_success
+          +access: private
       operations:
         fct_product_trend:
           +tags: depend_on_int_order_detail

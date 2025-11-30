@@ -2,14 +2,12 @@ groups:
   - name: core
     owner:
       email: datateam@company.com
-    config:
       meta:
         data_owner: Data Team
 
   - name: customer_success
     owner:
       email: cs@company.com
-    config:
       meta:
         data_owner: CS Team
     
