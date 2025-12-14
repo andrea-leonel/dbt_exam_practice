@@ -45,6 +45,8 @@ models:
       sales_revenue:
         fct_orders:
           +tags: depend_on_int_order_detail
+        fct_lifetime_value:
+          +materialized: table
         fct_products:
           +tags: depend_on_int_order_detail
       user_support:

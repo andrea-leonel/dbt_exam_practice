@@ -9,18 +9,12 @@ sources:
     tables:
       - name: companies_base
         description: database of companies
-        meta:
-          owner: "customer_success"
 
       - name: employees_base
         description: database of employees and their profile information
-        meta:
-          owner: "user_support"
       
       - name: enterprise_orders_base
         description: list of orders made by the employees
-        meta:
-          owner: "sales_revenue"
         config:
           freshness:
             warn_after: {count: 1 , period: day}
@@ -30,8 +24,6 @@ sources:
 
       - name: products_base
         description: database of products
-        meta:
-          owner: "operations"
 
   - name: dbt_fake_2
     description: Schema with all the tables considered seeds by the dbt_fake project. Here considered sources.
@@ -41,8 +33,6 @@ sources:
     tables:
       - name: fake_personal_info
         description: additional information on employees
-        meta:
-          owner: "user_support"
 
   - name: dbt_fake_live
     description: Live orders table with daily updates.
@@ -52,17 +42,9 @@ sources:
     tables:
       - name: enterprise_orders_base
         description: Live orders table with daily updates.
-        meta:
-          owner: "data"
       - name: companies_base
         description: live company details base.
-        meta:
-          owner: "data"
       - name: employees_base
         description: live employee details base.
-        meta:
-          owner: "data"
-
-
 
 
