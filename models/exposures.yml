@@ -1,0 +1,14 @@
+
+version: 2
+
+exposures:
+  - name: customer_lifetime_dashboard # required
+    type: dashboard # required
+    maturity: low
+    url: "https://example.com/dashboard"
+    description: "Dashboard showing customer lifetime value metrics"
+    depends_on: # required
+      - ref('fct_orders')           
+    owner: # required
+      name: "Analytics Team"
+      email: "analytics@example.com"

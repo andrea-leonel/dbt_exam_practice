@@ -1,8 +1,9 @@
 seeds:
   - name: international_area_codes
     description: standard area codes and countries
-    docs:
-      show: true
+    config:
+      docs:
+        show: true
     
     columns:
       - name: country_code
@@ -12,8 +13,9 @@ seeds:
 
   - name: prod_manufacturing_status
     description: defines if the product id is manufactured in-house or externally - provided by Operations
-    docs:
-      show: true
+    config:
+      docs:
+        show: true
     
     columns:
       - name: product_id
@@ -23,8 +25,9 @@ seeds:
 
   - name: us_states
     description: provides 2-letter abbreviation for us states
-    docs:
-      show: true
+    config:
+      docs:
+        show: true
     
     columns:
       - name: state_code
