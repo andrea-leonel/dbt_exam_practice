@@ -6,7 +6,7 @@
 
 with employees_base as  (
 
-    select * from {{ source('dbt_fake','employees_base') }}
+    select * from {{ source('dbt_fake_live','employees_base') }}
     where id is not null
 
 ),
