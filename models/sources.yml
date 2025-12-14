@@ -54,6 +54,14 @@ sources:
         description: Live orders table with daily updates.
         meta:
           owner: "data"
+      - name: companies_base
+        description: live company details base.
+        meta:
+          owner: "data"
+      - name: employees_base
+        description: live employee details base.
+        meta:
+          owner: "data"
 
 
 

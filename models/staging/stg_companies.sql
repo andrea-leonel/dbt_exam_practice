@@ -1,6 +1,6 @@
 with companies_base as  (
 
-    select * from {{ source('dbt_fake','companies_base') }}
+    select * from {{ source('dbt_fake_live','companies_base') }}
 
 ),
 

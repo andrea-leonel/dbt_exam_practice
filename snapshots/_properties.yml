@@ -1,0 +1,19 @@
+snapshots:
+
+  - name: companies_history
+    description: records changes to company attributes
+    relation: ref('stg_companies')
+    config:
+      schema: dbt_aleonel_prod
+      unique_key: comp_id
+      strategy: check
+      check_cols: ["comp_name","slogan","purpose"]
+
+  - name: employees_history
+    description: records changes to employee attributes
+    relation: ref('stg_employees')
+    config:
+      schema: dbt_aleonel_prod
+      unique_key: emp_id
+      strategy: check
+      check_cols: ["first_name","last_name","full_name","gender","email","age","username","phone_number","address_street","address_city","address_state","address_zipcode","birthdate","blood_type","favorite_color","credit_score"]
